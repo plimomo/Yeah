@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ให้แชมมี่</title>
+  <style>
+    body {
+      background: #ffe5ec;
+      font-family: 'Kanit', sans-serif;
+      padding: 50px;
+      text-align: center;
+      color: #880e4f;
+    }
+
+    .letter {
+      background: white;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      box-shadow: 0 0 20px rgba(255, 105, 135, 0.3);
+    }
+
+    #text {
+      white-space: pre-line;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 220px;
+      padding: 14px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 40px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* ตอบกลับฉัน */
+    #yesBtn {
+      background: linear-gradient(#f50057, #f50057) padding-box,
+                  linear-gradient(135deg, #ff8a80, #f50057, #ff4081) border-box;
+      color: white;
+      border: 4px solid transparent;
+      box-shadow: 0 0 15px rgba(255, 105, 135, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #yesBtn span {
+      position: relative;
+      z-index: 2;
+    }
+
+    #yesBtn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #ff4081, #f50057);
+      opacity: 0.2;
+      z-index: 1;
+      border-radius: inherit;
+      transition: opacity 0.3s;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 64, 129, 0.6);
+    }
+
+    #yesBtn:hover::before {
+      opacity: 0.4;
+    }
+
+    /* ไม่ตอบกลับฉัน */
+    #noBtn {
+      background-color: #e0e0e0;
+      color: #555;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #noBtn:hover {
+      background-color: #ccc;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ให้ไอ่โลกทั้งใบของปลื้ม <3</h1>
+
+  <div class="letter">
+    <div id="text"></div>
+
+    <div class="buttons">
+      <a id="yesBtn" class="btn" href="accept.html"><span>ด้ายยยย</span></a>
+      <button id="noBtn" class="btn" onclick="makeYesBigger()">มั่ย</button>
+    </div>
+  </div>
+
+  <script>
+    const msg = `
+Happy 5 month anniversary na babe 💌
+
+ขอบคุณนะไอ่ตัวเล่ก ที่อยู่ด้วยกันมาถึงทุกวันนี้ 
+5 เดือนนี้ผ่านอะไรกันมาเยอะเลยนะ แฟนเค้าเก่งที่สุด !
+
+จากนี้ไปอยู่ด้วยกันไปนานๆเลยนะที่ผ่านมาเก่งมากๆๆ
+เค้าจะอยู่ซัพพอร์ตโลกของแชมไปนานๆเลย
+
+เค้ารักคุณมากๆนะ อยู่กับเค้าไปนานๆเลยได้มั้ย ?
+`;
+
+    let i = 0;
+    function typeWriter() {
+      if (i < msg.length) {
+        document.getElementById("text").innerHTML += msg.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+
+    window.onload = typeWriter;
+
+    // ฟังก์ชันทำให้ปุ่ม "ตอบกลับฉัน" ใหญ่ขึ้นเรื่อยๆ
+    function makeYesBigger() {
+      const yesBtn = document.getElementById("yesBtn");
+      const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+      const newSize = currentSize * 1.15;
+
+      yesBtn.style.fontSize = newSize + "px";
+      yesBtn.style.padding = (14 + newSize * 0.1) + "px " + (20 + newSize * 0.2) + "px";
+      yesBtn.style.width = (220 + newSize * 2) + "px";
+      yesBtn.style.boxShadow = `0 0 ${newSize * 0.4}px rgba(255, 64, 129, 0.5)`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ต่อยกัน</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #222, #333);
+      font-family: 'Kanit', sans-serif;
+      color: #eee;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #ffeb3b;
+      text-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #03dac5;
+      color: #000;
+      font-size: 1.2em;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(3, 218, 197, 0.4);
+    }
+
+    a.button:hover {
+      background-color: #00bfa5;
+      transform: scale(1.05);
+    }
+
+    .footnote {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .photo-box {
+      width: 250px;
+      height: 250px;
+      margin: 40px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 255, 0, 0.3);
+      animation: float 5s ease-in-out infinite, fadeIn 1.5s ease-in;
+      transition: transform 0.3s;
+    }
+
+    .photo-box:hover {
+      transform: scale(1.07);
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ให้เจ้าแชม จะกดก็กด</h1>
+  <p>
+    มีอะไรจะถาม<br>
+    ถ้าไม่กดเข้าไปคือโดนต่อย
+  </p>
+
+  <!-- รูปภาพแชม -->
+  <div class="photo-box">
+    <img src="S__6782980.jpg" alt="รูปแชมสุดลึกลับ" />
+  </div>
+
+  <a class="button" href="love-letter.html">กดดิ้ เดะต่อยเลย</a>
+
+  <div class="footnote">
+    * ฮั่นแน่
+  </div>
+
+</body>
+</html>

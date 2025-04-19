@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>อิอิอิอิ</title>
+  <style>
+    body {
+      background: linear-gradient(to top right, #ffe6ff, #e0c3fc);
+      font-family: 'Kanit', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #4a148c;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .emoji {
+      font-size: 5rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 30px;
+      line-height: 1.8;
+    }
+
+    .photo-container {
+      margin: 40px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 64, 129, 0.4);
+      animation: float 6s ease-in-out infinite, fadeIn 2s ease-in;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-container:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">💍</div>
+  <h1>เย่เย่ เลิฟไอ่ตัวเล่กที่สุดด</h1>
+
+  <!-- รูปภาพน่ารัก ๆ -->
+  <div class="photo-container">
+    <img src="S__6782979.jpg" alt="ภาพของเรา" />
+  </div>
+
+  <p>
+    ตั้งแต่วันนี้ไป จับมือกันให้แน่นๆกว่าเดิมนะ 💑<br>
+    ทุกๆวันเค้ารักคุณมากขึ้น เค้าภูมิใจในทุกความสำเร็จของคุณเลยนะ<br>
+    ทั้งเว็บนี่เค้าเขียนมาเองหมดเลยย อาจจะดูกากนิดนึงแต่ตั้งใจทำให้นะ<br>
+    รักคุณที่สุดเลยครับ ❤️
+  </p>
+
+</body>
+</html>
