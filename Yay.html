@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เอกสารงาน</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            font-family: 'Kanit', sans-serif;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.7);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .title {
+            color: #ff0000;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            animation: pulse 2s infinite;
+        }
+
+        .subtitle {
+            color: #ff0000;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .btn {
+            position: relative;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(45deg, #ff0000, #ff00ff);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.6);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.7);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            animation: shine 3s linear infinite;
+        }
+
+        .warning {
+            color: #ff0000;
+            font-size: 1rem;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+
+        .floating-text {
+            position: absolute;
+            color: #ff0000;
+            opacity: 0.6;
+            pointer-events: none;
+            font-weight: bold;
+            animation: floatAround 15s linear infinite;
+        }
+
+        /* Effects */
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+            50% { text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; }
+            100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(50vw - 100px), calc(25vh - 50px)); }
+            50% { transform: translate(calc(-30vw + 50px), calc(-20vh + 25px)); }
+            75% { transform: translate(calc(-40vw + 75px), calc(30vh - 75px)); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glitch-effect {
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            1% { transform: translate(-5px, 5px); filter: hue-rotate(90deg); }
+            2% { transform: translate(5px, -5px); filter: hue-rotate(180deg); }
+            3% { transform: translate(0); filter: hue-rotate(0); }
+            10% { transform: translate(0); }
+            11% { transform: translate(-3px, 3px); filter: hue-rotate(30deg); }
+            12% { transform: translate(3px, -3px); filter: hue-rotate(60deg); }
+            13% { transform: translate(0); filter: hue-rotate(0); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="particles"></div>
+
+    <div class="container glitch-effect">
+        <h1 class="title">แชมอย่ากด</h1>
+        <p class="subtitle">ถ้าแชมยังไม่แน่ใจ แชมอย่ากด</p>
+        <a href="home.html" class="btn">กดไปคือตายได้เลยนะ</a>
+        <p class="warning">คำเตือน: กดไปคือตาย</p>
+    </div>
+
+    <!-- Floating texts -->
+    <div class="floating-text" style="top: 15%; left: 20%;">อันตราย</div>
+    <div class="floating-text" style="top: 75%; left: 80%;">ระวังงง</div>
+    <div class="floating-text" style="top: 45%; left: 10%;">กล้าหรอ</div>
+    <div class="floating-text" style="top: 85%; left: 35%;">ไม่แนะนำ</div>
+    <div class="floating-text" style="top: 25%; left: 75%;">หยุดเถอะ</div>
+
+    <script>
+        // Custom cursor effect
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            // Add scale effect on mouse move
+            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            setTimeout(() => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 100);
+        });
+
+        // Button hover effects with sound
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('mouseenter', () => {
+            const audio = new Audio();
+            audio.src = 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAsAAAuqAASEhISJCQkJCQ2NjY2Nkk5OTk5O0tLS0tLXV1dXV1vb29vb4GBgYGBlZWVlZWnp6enp7m5ubm5y8vLy8vd3d3d3e/v7+/vEhISEhIkJCQkJDY2NjY2STk5OTlLS0tLS0tdXV1dXW9vb29vgYGBgYGVlZWVlaenp6enuLi4uLjLy8vLy93d3d3d7+/v7+////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAVBfwAAAAAAAAAAAAAAAP/7kGQAD/AAAGkAAAAIAAANIAAAAQAAAaQAAAAgAAA0gAAABExBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVU=';
+            audio.play();
+        });
+
+        // Create particles
+        const particlesContainer = document.querySelector('.particles');
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = Math.random() * 5 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = `hsl(${Math.random() * 40 + 340}, 100%, 50%)`;
+            particle.style.borderRadius = '50%';
+            particle.style.opacity = Math.random() * 0.5 + 0.3;
+            
+            // Random position
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            
+            // Animation
+            const duration = Math.random() * 20 + 10;
+            particle.style.animation = `float ${duration}s linear infinite`;
+            
+            particlesContainer.appendChild(particle);
+            
+            // Remove after some time to avoid memory issues
+            setTimeout(() => {
+                if (particlesContainer.contains(particle)) {
+                    particlesContainer.removeChild(particle);
+                }
+            }, duration * 1000);
+        };
+        
+        // Create initial particles
+        for (let i = 0; i < 20; i++) {
+            createParticle();
+        }
+        
+        // Continue creating particles
+        setInterval(createParticle, 1000);
+
+        // Button click effect with shake
+        btn.addEventListener('click', (e) => {
+            document.body.classList.add('glitch-effect');
+            setTimeout(() => {
+                document.body.classList.remove('glitch-effect');
+            }, 500);
+        });
+
+        // Button movement (make it harder to click)
+        let moveCount = 0;
+        btn.addEventListener('mouseenter', (e) => {
+            if (moveCount < 2) {
+                const x = Math.random() * 100 - 50;
+                const y = Math.random() * 100 - 50;
+                btn.style.transform = `translate(${x}px, ${y}px) scale(1.1)`;
+                moveCount++;
+            } else {
+                btn.style.transform = 'scale(1.1)';
+            }
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    </script>
+</body>
+</html>

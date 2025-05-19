@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วันครบรอบของเรา ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #ffeff3;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 0, 98, 0.6);
+            font-size: 20px;
+            animation: float-up 15s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-50px) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ff3e6c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .main-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .main-image:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 1rem;
+            color: #666;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #ff3e6c;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #ff3e6c;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .date {
+            color: #ff3e6c;
+            font-weight: bold;
+        }
+        
+        .memory-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 90%;
+            margin: 50px auto;
+        }
+        
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fade-in 0.5s forwards;
+            animation-play-state: paused;
+        }
+        
+        .memory-card.show {
+            animation-play-state: running;
+        }
+        
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .memory-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .memory-text {
+            padding: 20px;
+        }
+        
+        .memory-text h3 {
+            color: #ff3e6c;
+            margin-bottom: 10px;
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .gallery-item {
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: transform 0.5s, opacity 0.5s;
+        }
+        
+        .gallery-item.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.2);
+        }
+        
+        .message {
+            background: white;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            text-align: left;
+            font-family: 'Mali', cursive;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .message::before {
+            content: "\201C";
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 100px;
+            color: #ff3e6c;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .fireworks-container.show {
+            opacity: 1;
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+        
+        .music-icon {
+            font-size: 20px;
+            color: #ff3e6c;
+        }
+        
+        footer {
+            background: #ff3e6c;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .heart-animation {
+            display: inline-block;
+            animation: heart-beat 1s infinite;
+        }
+        
+        @keyframes heart-beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .memory-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .surprise-button {
+            background: #ff3e6c;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .surprise-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Stars Background -->
+        <div class="stars" id="stars"></div>
+        
+        <!-- Floating Hearts -->
+        <div class="hearts-container" id="hearts"></div>
+        
+        <!-- Music Control -->
+        <div class="music-control" id="music-control">
+            <div class="music-icon">♫</div>
+        </div>
+        
+        <!-- Header Section -->
+        <header>
+            <h1>วันครบรอบบบบบ</h1>
+            <img src="YAY.jpg" alt="รูปของเรา" class="main-image">
+            <div class="countdown" id="countdown">ไอ่เบ้บอยู่กับเค้ามา: <span id="days">0</span> วันล้ะ</div>
+            <div class="scroll-down">เลื่อนลงมาดูซะไอ่เจ้าแชม ↓</div>
+        </header>
+        
+        <!-- Our Story Section -->
+        <section id="our-story">
+            <h2>Memories Of US ! !</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="date">เจอพี่แชมครั้งแรก</h3>
+                        <p>8 พ.ย. 67 เขินตูดบิด ตัวก็เล็กทำไมน่ารักจังว้ะ</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="date">เดทแรกเด้ฟฟ</h3>
+                        <p>10 พ.ย. 67 จับมือกันครั้งแรกก อิิอิ เขินส่วนสูงด้วย ตัวก็เล่กเหมือนเดิม</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="date">คบกันวันแรกก</h3>
+                        <p>18 พ.ย. 67 ตอนแรกปลื้มจะเป็นคนขอแต่พี่แชมบอกปลื้มลีลา งงมาก ฟวย</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="date">โดนบอกรักก</h3>
+                        <p>19 พ.ย. 67 ก่อนนอนโดนบอกรักโด่ย ตอนนั้นจำได้ ดีใจกระโดดลงตึก</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="date">วันนี้</h3>
+                        <p>19 พ.ค 68 วันนี้ก็ยังรักเหมือนเดิมงับไอ่อ่วง เพิ่มมมมมมมากกขึ้นด้วย ! !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Memories Section -->
+        <section id="memories">
+            <h2>Memories</h2>
+            <div class="memory-container">
+                <div class="memory-card">
+                    <img src="42BC3E39-EB06-4A49-B74B-6CC695C43FF7.png" alt="ความทรงจำ 1" class="memory-image">
+                    <div class="memory-text">
+                        <h3>First Day</h3>
+                        <p>ทริปของแชมและปื้มมมมม เที่ยวช่ำ ( มั้ง ? )</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card">
+                    <img src="24-7 (1).jpg" alt="ความทรงจำ 2" class="memory-image">
+                    <div class="memory-text">
+                        <h3>Cafe Trip !</h3>
+                        <p>เป็นครั้งที่สองที่เราเจอกันน ครั้งนั้นคุณเอาน้องมาด้วย น้องคุณน่ารักมากก</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card">
+                    <img src="ฟฟฟฟฟ.jpg" alt="ความทรงจำ 3" class="memory-image">
+                    <div class="memory-text">
+                        <h3>ChaTuChak Dating</h3>
+                        <p>ไปสวนจตุจักรครั้งแรกกะหวานจัยยย จุ้บๆครั้งแรกโด่ย</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card">
+                    <img src="EB1831BD-5F0A-4FC1-8DA1-6CB561B2FFCA.jpg" alt="ความทรงจำ 4" class="memory-image">
+                    <div class="memory-text">
+                        <h3>Dept กับหวานจัย againn</h3>
+                        <p>ได้ถ่ายรูปคู่กะพี่เบ้นกับพี่ลุคด้วยยย ใจฟูสุดๆไอ่น้อง</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Gallery EiEi</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="1.jpg" alt="ภาพ 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="2.jpg" alt="ภาพ 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="3.jpg" alt="ภาพ 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="4.jpg" alt="ภาพ 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="5.jpg" alt="ภาพ 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="6.jpg" alt="ภาพ 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="7.jpg" alt="ภาพ 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="9.jpg" alt="ภาพ 8">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Message Section -->
+        <section id="message">
+            <h2> Msg For My Everything</h2>
+            <div class="message">
+                <p>ถึงไอ่เบ้บของเค้า</p>
+                <p>ขอบคุณสำหรับช่วงเวลาดีๆที่ให้เค้ามานะ ทุกๆวันนี้คุนคือความสุขของเค้าแล้วก็ทุกความทรงจำที่เราสร้างร่วมกันมามันดีมากๆๆๆ เค้าอยากอยู่กับคุณไปอีกนานแสนนานเบยย</p>
+                <p>เบ้บคือโลกทั้งใบของเด็กคนนึงเลยนะ คุนเป็นคนที่เข้าใจเค้ามากๆ ไม่ว่าจะสุขหรือทุกข์ คุณก็อยู่เคียงข้างเค้าเสมอ ขอบคุณนะ</p>
+                <p>ต่อจากนี้ไปเค้าสัญญาว่าจะรักและทะนุถนอมคุนอย่างดีที่สุดดดด</p>
+                <p>เค้ารักคุณนะ ไม่ใช่แค่วันนี้หรือพรุ่งนี้หรืออีกหลายเดือนข้างหน้า เค้าจะรักคุณจนเราแก่ตายไปด้วยกันเลย</p>
+                <p> จากปื้ม </p>
+            </div>
+            <button id="surprise-button" class="surprise-button">ลองกดดูนะไอ่เบ้บ</button>
+        </section>
+        
+        <!-- Fireworks Container -->
+        <div class="fireworks-container" id="fireworks"></div>
+        
+        <!-- Image Modal -->
+        <div class="modal" id="image-modal">
+            <span class="close-modal">&times;</span>
+            <div class="modal-content">
+                <img id="modal-img" src="" alt="ภาพขยาย">
+            </div>
+        </div>
+        
+        <footer>
+            <p>สร้างจากความรัก ิิ <span class="heart-animation">❤️</span> สำหรับคนพิเศษของปื้ม</p>
+            <p>&copy; สร้างตอนวันที่่ 18 พ.ค. 68</p>
+        </footer>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calculate days together - เปลี่ยนวันที่เริ่มคบกัน
+        const startDate = new Date('2024-11-18'); // ตัวอย่าง - เปลี่ยนเป็นวันที่เริ่มต้นคบกัน
+        const today = new Date();
+        const diff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+        document.getElementById('days').textContent = diff;
+        
+        // Create stars background
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.width = `${Math.random() * 3 + 1}px`;
+            star.style.height = star.style.width;
+            star.style.borderRadius = '50%';
+            star.style.background = 'white';
+            star.style.opacity = Math.random() * 0.7 + 0.3;
+            star.style.animation = `twinkle ${Math.random() * 5 + 3}s infinite`;
+            starsContainer.appendChild(star);
+        }
+        
+        // Create floating hearts
+        const heartsContainer = document.getElementById('hearts');
+        for (let i = 0; i < 30; i++) {
+            createHeart();
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDelay = `${Math.random() * 15}s`;
+            heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+            heartsContainer.appendChild(heart);
+            
+            // Remove and recreate heart after animation ends
+            heart.addEventListener('animationend', function() {
+                heart.remove();
+                createHeart();
+            });
+        }
+        
+        // Timeline animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Memory cards animation
+        const memoryCards = document.querySelectorAll('.memory-card');
+        const memoryObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        memoryCards.forEach(card => {
+            memoryObserver.observe(card);
+        });
+        
+        // Gallery animation
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        galleryItems.forEach(item => {
+            galleryObserver.observe(item);
+            
+            // Add click event for gallery items
+            item.addEventListener('click', function() {
+                const modal = document.getElementById('image-modal');
+                const modalImg = document.getElementById('modal-img');
+                modal.style.display = 'flex';
+                modalImg.src = this.querySelector('img').src;
+            });
+        });
+        
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('image-modal').style.display = 'none';
+        });
+        
+        // Message animation
+        const message = document.querySelector('.message');
+        const messageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        messageObserver.observe(message);
+        
+        // Custom fireworks function
+        function createFirework() {
+            const colors = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#ff00ff'];
+            
+            // Create firework container
+            const firework = document.createElement('div');
+            firework.style.position = 'absolute';
+            firework.style.width = '5px';
+            firework.style.height = '5px';
+            firework.style.borderRadius = '50%';
+            firework.style.left = `${20 + Math.random() * 60}%`;
+            firework.style.top = `${20 + Math.random() * 60}%`;
+            
+            // Add to container
+            document.getElementById('fireworks').appendChild(firework);
+            
+            // Create particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '3px';
+                particle.style.height = '3px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.boxShadow = `0 0 6px 2px ${particle.style.background}`;
+                particle.style.left = '0px';
+                particle.style.top = '0px';
+                
+                // Random speed and direction
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 1 + Math.random() * 3;
+                const vx = Math.cos(angle) * speed;
+                const vy = Math.sin(angle) * speed;
+                
+                // Animation
+                particle.style.animation = `explode 1.5s ease-out forwards`;
+                particle.style.transform = `translate(0, 0)`;
+                
+                // Custom animation
+                let start = null;
+                const duration = 1500; // 1.5 seconds
+                
+                function animate(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = timestamp - start;
+                    
+                    if (progress < duration) {
+                        const x = vx * progress / 40;
+                        const y = vy * progress / 40 + 0.002 * Math.pow(progress, 1.5) / 2;
+                        particle.style.transform = `translate(${x}px, ${y}px)`;
+                        particle.style.opacity = 1 - progress / duration;
+                        
+                        requestAnimationFrame(animate);
+                    } else {
+                        firework.removeChild(particle);
+                        if (firework.childNodes.length === 0) {
+                            document.getElementById('fireworks').removeChild(firework);
+                        }
+                    }
+                }
+                
+                firework.appendChild(particle);
+                requestAnimationFrame(animate);
+            }
+        }
+        
+        // Surprise Button
+        document.getElementById('surprise-button').addEventListener('click', function() {
+            const fireworksContainer = document.getElementById('fireworks');
+            fireworksContainer.classList.add('show');
+            
+            // Create multiple fireworks
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createFirework();
+                }, i * 300);
+            }
+            
+            // Create heart confetti
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    createConfetti();
+                }, i * 50);
+            }
+            
+            // Hide fireworks container after all animations
+            setTimeout(() => {
+                fireworksContainer.classList.remove('show');
+            }, 8000);
+        });
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.innerHTML = '❤️';
+            confetti.style.position = 'fixed';
+            confetti.style.zIndex = '1000';
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.top = '0';
+            confetti.style.fontSize = `${Math.random() * 15 + 10}px`;
+            confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        // Create falling confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+                80% { opacity: 1; }
+                100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+            
+            @keyframes twinkle {
+                0% { opacity: 0.3; }
+                50% { opacity: 1; }
+                100% { opacity: 0.3; }
+            }
+            
+            @keyframes explode {
+                0% { transform: translate(0, 0); opacity: 1; }
+                100% { transform: translate(var(--x), var(--y)); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Music control
+        const musicControl = document.getElementById('music-control');
+        const audio = new Audio('bestpart.mp3');
+        audio.loop = true;
+        
+        let isPlaying = false;
+        musicControl.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                musicControl.querySelector('.music-icon').textContent = '♫';
+                isPlaying = false;
+            } else {
+                audio.play().catch(e => {
+                    console.log('Auto-play prevented. Please click again.');
+                });
+                musicControl.querySelector('.music-icon').textContent = '◼';
+                isPlaying = true;
+            }
+        });
+        
+        // Typewriter effect on h1
+        const header = document.querySelector('h1');
+        const originalText = header.textContent;
+        header.textContent = '';
+        
+        function typeWriter(text, i) {
+            if (i < text.length) {
+                header.textContent += text.charAt(i);
+                i++;
+                setTimeout(() => typeWriter(text, i), 100);
+            }
+        }
+        
+        // Start typewriter after a short delay
+        setTimeout(() => {
+            typeWriter(originalText, 0);
+        }, 1000);
+        
+        // Parallax effect on header
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            document.querySelector('header').style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+        
+        // 3D hover effect on cards
+        document.querySelectorAll('.memory-card').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const cardRect = card.getBoundingClientRect();
+                const x = e.clientX - cardRect.left;
+                const y = e.clientY - cardRect.top;
+                
+                const centerX = cardRect.width / 2;
+                const centerY = cardRect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+        
+        // Create hidden surprise
+        let konami = [];
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', function(e) {
+            konami.push(e.key);
+            konami = konami.slice(-10);
+            
+            if (konami.join('') === konamiCode.join('')) {
+                activateSecretSurprise();
+            }
+        });
+        
+        function activateSecretSurprise() {
+            // Create floating photos animation
+            const secretDiv = document.createElement('div');
+            secretDiv.style.position = 'fixed';
+            secretDiv.style.top = '0';
+            secretDiv.style.left = '0';
+            secretDiv.style.width = '100%';
+            secretDiv.style.height = '100%';
+            secretDiv.style.background = 'rgba(0,0,0,0.9)';
+            secretDiv.style.zIndex = '9999';
+            secretDiv.style.display = 'flex';
+            secretDiv.style.justifyContent = 'center';
+            secretDiv.style.alignItems = 'center';
+            secretDiv.style.flexDirection = 'column';
+            secretDiv.innerHTML = '<h2 style="color: white; font-size: 3rem; margin-bottom: 30px">คนพิเศษที่สุด ❤️</h2>';
+            
+            // Add a surprise message
+            const message = document.createElement('p');
+            message.style.color = 'white';
+            message.style.fontSize = '1.5rem';
+            message.style.maxWidth = '600px';
+            message.style.textAlign = 'center';
+            message.style.margin = '20px';
+            message.style.lineHeight = '1.6';
+            message.textContent = 'คุณคือคนพิเศษที่สุดสำหรับฉัน ขอบคุณสำหรับทุกความทรงจำดีๆ และความสุขที่เราได้ใช้ร่วมกัน รักคุณเสมอ';
+            
+            secretDiv.appendChild(message);
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = 'ปิด';
+            closeBtn.style.padding = '10px 20px';
+            closeBtn.style.background = '#ff3e6c';
+            closeBtn.style.color = 'white';
+            closeBtn.style.border = 'none';
+            closeBtn.style.borderRadius = '30px';
+            closeBtn.style.marginTop = '30px';
+            closeBtn.style.cursor = 'pointer';
+            closeBtn.addEventListener('click', function() {
+                secretDiv.remove();
+            });
+            
+            secretDiv.appendChild(closeBtn);
+            document.body.appendChild(secretDiv);
+            
+            // Add floating hearts animation
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const floatingHeart = document.createElement('div');
+                    floatingHeart.innerHTML = '❤️';
+                    floatingHeart.style.position = 'absolute';
+                    floatingHeart.style.fontSize = `${Math.random() * 30 + 20}px`;
+                    floatingHeart.style.left = `${Math.random() * 100}%`;
+                    floatingHeart.style.top = `${Math.random() * 100}%`;
+                    floatingHeart.style.animation = `float ${Math.random() * 6 + 4}s infinite`;
+                    secretDiv.appendChild(floatingHeart);
+                }, i * 100);
+            }
+        }
+        
+        // Add scroll-triggered animations
+        const sections = document.querySelectorAll('section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            sectionObserver.observe(section);
+        });
+        
+        // Add fade-in animation
+        const fadeStyle = document.createElement('style');
+        fadeStyle.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(fadeStyle);
+        
+        // Preload images for better performance
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+        
+        // Preload placeholder images
+        for (let i = 1; i <= 8; i++) {
+            preloadImage(`/api/placeholder/300/300`);
+        }
+        preloadImage(`/api/placeholder/400/400`);
+        for (let i = 1; i <= 4; i++) {
+            preloadImage(`/api/placeholder/400/300`);
+        }
+    });
+    </script>
+</body>
+</html>
